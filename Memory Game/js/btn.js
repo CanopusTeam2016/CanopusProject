@@ -13,7 +13,7 @@ function drawBtn(text, x, y) {
 
     ctx.beginPath();
     ctx.moveTo(x+20, y+20);
-    ctx.lineTo(x+20+width, y+20);
+    //ctx.lineTo(x+20+width, y+20);
     ctx.stroke();
 
     ctx.fillText(text, x+ 20+ width / 2, y+20);

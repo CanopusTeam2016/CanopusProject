@@ -1,32 +1,46 @@
 function init() {
-    let img1= new Image();
-    img1.src = '.src/1minion.jpg';
-
-    let img2= new Image();
-    img2.src = '.src/2minion.jpg';
-
-    let img3= new Image();
-    img3.src = '.src/3minion.jpg';
-
-    let img4= new Image();
-    img4.src = '.src/4minion.jpg';
+    let img1= document.getElementById('field');
+    let img2= document.getElementById('background');
 
     draw();
 
     function draw() {
         let ctx = document.getElementById('canvas').getContext('2d');
 
-        for (let row = 0; row < 8; row++) {
+        //make fields
+        for (let row = 0; row < 6; row++) {
             for (let col = 0; col < 8; col++) {
-                let x = 2 + col * 100;
-                let y = 2 + row * 100;
-                ctx.fillStyle="#00ff00";
-                ctx.fillRect(x, y, 96, 96);
+                let x = 4 + col * 100;
+                let y = 4 + row * 100;
+                ctx.fillStyle = 'green';
+                ctx.fillRect(x, y, 92, 92);
             }
         }
 
-        ctx.drawImage(img1, 0, 0);
-        ctx.drawImage(img2, 0, 100)
+        let live = false;
+        window.addEventListener('click', function (event) {
+            if(!live){
+                live = true;
+                requestAnimationFrame(animate);
+            }
+        });
+        let col=0;
+        let row=0;
+        function animate() {
+            let x = 4 + col * 100;
+            let y = 4 + row * 100;
+            col++;
+            row++;
+            ctx.fillStyle="#ff0000";
+            ctx.lineCap = 'round';
+            //ctx.fillRect(x, y, 92, 92);
+            ctx.drawImage(img1, 0,0);
+            ctx.drawImage(img2, 100,100);
+
+            requestAnimationFrame(animate);
+        }
+        //ctx.drawImage(img1, 0, 0);
+        //ctx.drawImage(img2, 0, 100)
     }
 }
 
