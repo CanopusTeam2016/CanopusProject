@@ -36,6 +36,7 @@ function init() {
         });
 
         let count = 0;
+        let pics=[];
         function mousePosition() {
             //initialise
             let canvas = document.getElementById('canvas');
@@ -46,8 +47,19 @@ function init() {
                 let y = evt.pageY;
                 console.log("x: " + x + " Y: " + y);
                 if(count == 2){
-                    drawFields();
-                    count=0;
+                    let pic1 = pics[0];
+                    let pic2 = pics[1];
+                    console.log(pic1);
+                    console.log(pic2);
+                    if(pic1 == pic2){
+                        pics=[];
+                        mousePosition();
+                        count = 0;
+                    }else {
+                        pics=[];
+                        drawFields();
+                        count = 0;
+                    }
                 }
 
                 if (x <= 100 && x >= 18 && y <= 100 && y >= 20) {
@@ -56,30 +68,35 @@ function init() {
                     ctx.lineWidth = 5;
                     ctx.strokeRect(0, 0, 96, 96);
                     count++;
+                    pics.push("img1");
                 } else if (x <= 200 && x >= 100 && y <= 200 && y >= 100) {
                     ctx.drawImage(img2, 100, 100, 96, 96);
                     ctx.strokeStyle = "blue";
                     ctx.lineWidth = 5;
                     ctx.strokeRect(100, 100, 96, 96);
                     count++;
+                    pics.push("img2");
                 } else if (x <= 200 && x >= 100 && y <= 100 && y >= 20) {
                     ctx.drawImage(img3, 100, 0, 96, 96);
                     ctx.strokeStyle = "blue";
                     ctx.lineWidth = 5;
                     ctx.strokeRect(100, 0, 96, 96);
                     count++;
+                    pics.push("img3");
                 } else if (x <= 300 && x >= 200 && y <= 100 && y >= 20) {
                     ctx.drawImage(img4, 200, 0, 96, 96);
                     ctx.strokeStyle = "blue";
                     ctx.lineWidth = 5;
                     ctx.strokeRect(200, 0, 96, 96);
                     count++;
+                    pics.push("img4");
                 } else if (x <= 400 && x >= 300 && y <= 100 && y >= 20) {
                     ctx.drawImage(img3, 300, 0, 96, 96);
                     ctx.strokeStyle = "blue";
                     ctx.lineWidth = 5;
                     ctx.strokeRect(300, 0, 96, 96);
                     count++;
+                    pics.push("img3");
                 }
                 else if (x <= 100 && x >= 0 && y <= 200 && y >= 100) {
                     ctx.drawImage(img5, 0, 100, 96, 96);
@@ -87,12 +104,14 @@ function init() {
                     ctx.lineWidth = 5;
                     ctx.strokeRect(0, 100, 96, 96);
                     count++;
+                    pics.push("img5");
                 } else if (x <= 300 && x >= 200 && y <= 200 && y >= 100) {
                     ctx.drawImage(img6, 200, 100, 96, 96);
                     ctx.strokeStyle = "blue";
                     ctx.lineWidth = 5;
                     ctx.strokeRect(200, 100, 96, 96);
                     count++;
+                    pics.push("img6");
                 }
                 else if (x <= 400 && x >= 300 && y <= 200 && y >= 100) {
                     ctx.drawImage(img1, 300, 100, 96, 96);
@@ -100,6 +119,7 @@ function init() {
                     ctx.lineWidth = 5;
                     ctx.strokeRect(300, 100, 96, 96);
                     count++;
+                    pics.push("img1");
                 }
                 else if (x <= 100 && x >= 0 && y <= 300 && y >= 200) {
                     ctx.drawImage(img2, 0, 200, 96, 96);
@@ -107,6 +127,7 @@ function init() {
                     ctx.lineWidth = 5;
                     ctx.strokeRect(0, 200, 96, 96);
                     count++;
+                    pics.push("img2");
                 }
                 else if (x <= 200 && x >= 100 && y <= 300 && y >= 200) {
                     ctx.drawImage(img4, 100, 200, 96, 96);
@@ -114,6 +135,7 @@ function init() {
                     ctx.lineWidth = 5;
                     ctx.strokeRect(100, 200, 96, 96);
                     count++;
+                    pics.push("img4");
                 }
                 else if (x <= 300 && x >= 200 && y <= 300 && y >= 200) {
                     ctx.drawImage(img5, 200, 200, 96, 96);
@@ -121,6 +143,7 @@ function init() {
                     ctx.lineWidth = 5;
                     ctx.strokeRect(200, 200, 96, 96);
                     count++;
+                    pics.push("img5");
                 }
                 else if (x <= 400 && x >= 300 && y <= 300 && y >= 200) {
                     ctx.drawImage(img6, 300, 200, 96, 96);
@@ -128,6 +151,7 @@ function init() {
                     ctx.lineWidth = 5;
                     ctx.strokeRect(300, 200, 96, 96);
                     count++;
+                    pics.push("img6");
                 }
 
             });
