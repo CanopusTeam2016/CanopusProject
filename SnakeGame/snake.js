@@ -1,6 +1,3 @@
-/**
- * Created by longqi on 21/Jul/16.
- */
 $(document).ready(function () {
 
     var can = $('#canvas')[0];
