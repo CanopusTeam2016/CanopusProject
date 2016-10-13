@@ -23,7 +23,7 @@ $(document).ready(function () {
         create_snake();
         if (typeof game_loop != 'undefined')
             clearInterval(game_loop);
-        game_loop = setInterval(paint, 100);
+        game_loop = setInterval(paint, 120);
     }
 
     function pause() {
@@ -33,7 +33,7 @@ $(document).ready(function () {
             status = 'pause';
         }
         else {
-            game_loop = setInterval(paint, 100);
+            game_loop = setInterval(paint, 120);
             status = 'running';
         }
     }
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
     function create_background() {
         // paint the canvas
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = '#ddd';
         ctx.fillRect(0, 0, w, h);
         ctx.strokeStyle = 'black';
         ctx.strokeRect(0, 0, w, h);
@@ -126,7 +126,7 @@ $(document).ready(function () {
     }
 
     function paint_cell(x, y) {
-        ctx.fillStyle = '#00ff00';
+        ctx.fillStyle = '#0000ff';
         ctx.fillRect(x * cw, y * cw, cw, cw);
         ctx.strokeStyle = 'white';
         ctx.strokeRect(x * cw, y * cw, cw, cw);
